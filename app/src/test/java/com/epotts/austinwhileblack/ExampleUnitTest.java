@@ -1,4 +1,4 @@
-package com.example.austinwhileblack;
+package com.epotts.austinwhileblack;
 
 import org.junit.Test;
 

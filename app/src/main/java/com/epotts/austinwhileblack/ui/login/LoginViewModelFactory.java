@@ -1,11 +1,11 @@
-package com.example.austinwhileblack.ui.login;
+package com.epotts.austinwhileblack.ui.login;
 
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.annotation.NonNull;
 
-import com.example.austinwhileblack.data.LoginDataSource;
-import com.example.austinwhileblack.data.LoginRepository;
+import com.epotts.austinwhileblack.data.LoginDataSource;
+import com.epotts.austinwhileblack.data.LoginRepository;
 
 /**
  * ViewModel provider factory to instantiate LoginViewModel.

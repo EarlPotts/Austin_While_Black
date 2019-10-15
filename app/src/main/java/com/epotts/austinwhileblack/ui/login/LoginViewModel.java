@@ -1,4 +1,4 @@
-package com.example.austinwhileblack.ui.login;
+package com.epotts.austinwhileblack.ui.login;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -6,10 +6,10 @@ import androidx.lifecycle.ViewModel;
 
 import android.util.Patterns;
 
-import com.example.austinwhileblack.data.LoginRepository;
-import com.example.austinwhileblack.data.Result;
-import com.example.austinwhileblack.data.model.LoggedInUser;
-import com.example.austinwhileblack.R;
+import com.epotts.austinwhileblack.data.LoginRepository;
+import com.epotts.austinwhileblack.data.Result;
+import com.epotts.austinwhileblack.data.model.LoggedInUser;
+import com.epotts.austinwhileblack.R;
 
 public class LoginViewModel extends ViewModel {
 

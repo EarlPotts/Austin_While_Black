@@ -1,4 +1,4 @@
-package com.example.austinwhileblack.ui.login;
+package com.epotts.austinwhileblack.ui.login;
 
 import android.app.Activity;
 
@@ -22,13 +22,13 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.austinwhileblack.R;
-import com.example.austinwhileblack.ui.login.LoginViewModel;
-import com.example.austinwhileblack.ui.login.LoginViewModelFactory;
+import com.epotts.austinwhileblack.R;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
 
     private LoginViewModel loginViewModel;
+    private FirebaseAuth auth;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

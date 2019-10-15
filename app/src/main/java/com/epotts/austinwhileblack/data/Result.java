@@ -1,4 +1,4 @@
-package com.example.austinwhileblack.data;
+package com.epotts.austinwhileblack.data;
 
 /**
  * A generic class that holds a result success w/ data or an error exception.

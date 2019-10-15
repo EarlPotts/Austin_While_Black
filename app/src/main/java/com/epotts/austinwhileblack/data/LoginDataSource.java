@@ -1,6 +1,6 @@
-package com.example.austinwhileblack.data;
+package com.epotts.austinwhileblack.data;
 
-import com.example.austinwhileblack.data.model.LoggedInUser;
+import com.epotts.austinwhileblack.data.model.LoggedInUser;
 
 import java.io.IOException;
 

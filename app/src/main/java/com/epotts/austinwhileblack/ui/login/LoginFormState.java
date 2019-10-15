@@ -1,4 +1,4 @@
-package com.example.austinwhileblack.ui.login;
+package com.epotts.austinwhileblack.ui.login;
 
 import androidx.annotation.Nullable;
 

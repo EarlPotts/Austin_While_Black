@@ -1,6 +1,6 @@
-package com.example.austinwhileblack.data;
+package com.epotts.austinwhileblack.data;
 
-import com.example.austinwhileblack.data.model.LoggedInUser;
+import com.epotts.austinwhileblack.data.model.LoggedInUser;
 
 /**
  * Class that requests authentication and user information from the remote data source and

@@ -1,4 +1,4 @@
-package com.example.austinwhileblack.ui.login;
+package com.epotts.austinwhileblack.ui.login;
 
 /**
  * Class exposing authenticated user details to the UI.
