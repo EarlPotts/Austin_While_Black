@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Austin While Black</string>
+    <string name="title_activity_signup">Register or SIgn Up</string>
+    <string name="email_hint">Enter email address</string>
 </resources>
