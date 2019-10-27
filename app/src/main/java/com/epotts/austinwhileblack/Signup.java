@@ -40,8 +40,8 @@ public class Signup extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
+        getSupportActionBar().hide();
 
         email = findViewById(R.id.userEmail);
         pass = findViewById(R.id.userPass);
@@ -67,7 +67,8 @@ public class Signup extends AppCompatActivity {
                 }
                 //user wants to sign into an existing account
                 else {
-                    signIn(address, pw);
+                    auth.signInWithEmailAndPassword(address, pw);
+                    updateUI(auth.getCurrentUser());
                 }
             }
         });
@@ -82,30 +83,6 @@ public class Signup extends AppCompatActivity {
                     fnBox.setVisibility(View.GONE);
                     lnBox.setVisibility(View.GONE);
                 }
-            }
-        });
-    }
-
-    private void signIn(String address, String pw) {
-        auth.signInWithEmailAndPassword(address, pw).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()) {
-                    // Sign in success, update UI with the signed-in user's information
-                    Log.d(TAG, "signin:success");
-                    FirebaseUser user = auth.getCurrentUser();
-                    Toast.makeText(Signup.this, "Signed In!",
-                            Toast.LENGTH_SHORT).show();
-                    updateUI(user);
-                } else {
-                    // If sign in fails, display a message to the user.
-                    Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                    Toast.makeText(Signup.this, task.getException().getMessage(),
-                            Toast.LENGTH_SHORT).show();
-                    updateUI(null);
-                }
-
-                // ...
             }
         });
     }
