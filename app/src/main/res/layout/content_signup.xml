@@ -11,8 +11,9 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="281dp"
+        android:layout_width="0dp"
         android:layout_height="293dp"
+        android:background="#D8471B"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -62,23 +63,12 @@
             android:inputType="textPersonName"
             android:visibility="gone" />
 
-    </LinearLayout>
+        <CheckBox
+            android:id="@+id/signOrRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New User?" />
 
-    <Switch
-        android:id="@+id/signOrRegister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:checked="false"
-        android:showText="true"
-        android:splitTrack="true"
-        android:textAlignment="center"
-        android:textOff="Sign in"
-        android:textOn="Register"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="0.079" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

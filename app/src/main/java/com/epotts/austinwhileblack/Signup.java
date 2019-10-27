@@ -21,6 +21,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.Toast;
@@ -31,7 +32,7 @@ public class Signup extends AppCompatActivity {
     private FirebaseAuth auth;
     private String TAG;
     private FirebaseUser user;
-    private Switch registerSwitch;
+    private CheckBox registerSwitch;
     private DatabaseReference database;
     private EditText fnBox;
     private EditText lnBox;
@@ -40,8 +41,6 @@ public class Signup extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
-
-        getSupportActionBar().hide();
 
         email = findViewById(R.id.userEmail);
         pass = findViewById(R.id.userPass);
@@ -67,8 +66,7 @@ public class Signup extends AppCompatActivity {
                 }
                 //user wants to sign into an existing account
                 else {
-                    auth.signInWithEmailAndPassword(address, pw);
-                    updateUI(auth.getCurrentUser());
+                    signIn(address, pw);
                 }
             }
         });
@@ -96,6 +94,8 @@ public class Signup extends AppCompatActivity {
     public void signOut(){
         auth.signOut();
     }
+
+
     private void createUser(String email, String password){
         auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -106,14 +106,37 @@ public class Signup extends AppCompatActivity {
                             Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = auth.getCurrentUser();
                             //add user info into the database
-                            DatabaseReference userData = database.child(user.getUid());
+                            DatabaseReference userData = database.child("Users").child(user.getUid());
                             userData.child("first_name").setValue(fnBox.getText().toString().trim());
-                            userData.child("last_name").setValue(fnBox.getText().toString().trim());
+                            userData.child("last_name").setValue(lnBox.getText().toString().trim());
 
 
                             Toast.makeText(Signup.this, "Registered!",
                                     Toast.LENGTH_SHORT).show();
+                            updateUI(user);
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w(TAG, "createUserWithEmail:failure", task.getException());
+                            Toast.makeText(Signup.this, task.getException().getMessage(),
+                                    Toast.LENGTH_SHORT).show();
                             updateUI(null);
+                        }
+
+                        // ...
+                    }
+                });
+    }
+
+    private void signIn(String email, String password){
+        auth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            FirebaseUser user = auth.getCurrentUser();
+
+                            Toast.makeText(Signup.this, "Signed In!",
+                                    Toast.LENGTH_SHORT).show();
                             updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
